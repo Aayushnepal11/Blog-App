@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+      <h4 class="display-4 text-center">My Blogs<br/><a class="btn btn-dark-outline" href="{% url 'blogs:create' %}">Create a Post</a></h4>
+    <hr />
+    {% if user.is_authenticated %}
+    {% for blog_header in user_data %}
+    <div class="col-md-6">
+    <div class="card w-75 m-2">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size:22px;">{{blog_header.title}}</h5>
+          <p class="lead">{{ blog_header.date_added }}</p>
+          <div class="d-flex">
+            <p class="badge text-primary">Added By:{{ blog_header.owner.first_name }} {{blog_header.owner.last_name}} </p>
+            <a href="{% url 'blogs:details' blog_header.pk %}" class="btn btn-primary">Read Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+    {% else %}
+    {% for blog in blogs %}
+    <div class="col-md-6">
+    <div class="card w-75 m-2">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size:22px;">{{blog.title}}</h5>
+          <p class="lead">{{ blog.date_added }}</p>
+          <div class="d-flex">
+            <p class="badge text-primary">Added By:{{ blog.owner.first_name }} {{blog.owner.last_name}} </p>
+            <a href="{% url 'blogs:details' blog.pk %}" class="btn btn-primary">Read Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+    {% endif %}
+    </div>
+{% endblock content %}

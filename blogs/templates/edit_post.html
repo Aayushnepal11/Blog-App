@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <h4 class="display-4 text-center">Update Data</h4>
+    <hr />
+    <form action="" method="post">
+        {% csrf_token %}
+        {%  bootstrap_form form  %}
+        {% bootstrap_button content="Update" type="submit" button_class="btn-lg btn-success" %}
+    </form>
+
+{% endblock content %}

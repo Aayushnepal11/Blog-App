@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p class="lead">Page Visited: {{num_visit}}</p>
+    <a class="btn btn-primary-outline" href="{% url 'blogs:edit_post' id.id %}">Edit</a>
+    <br/>
+    {{blog_text| safe}}
+{% endblock content %}

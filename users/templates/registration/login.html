@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <form action="" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_class="btn btn-lg btn-primary" content="Login" type="submit" %}
+        <input type="hidden" name="next" value="{% url 'blogs:home' %}">
+    </form>
+{% endblock content %}

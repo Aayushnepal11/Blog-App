@@ -1,0 +1,13 @@
+.navbar .navbar-brand {
+  display: flex;
+  flex: 1;
+  font-size: 30px;
+}
+
+.display-3 {
+  font-family: monospace;
+}
+
+.django-ckeditor-widget {
+  display: block !important;
+}/*# sourceMappingURL=style.css.map */
